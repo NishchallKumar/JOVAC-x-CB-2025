@@ -1,0 +1,113 @@
+var s1 = "Rishabh";
+var s1 = "Ayush";  //  allowed
+
+let s2 = "Suraj";
+let s2 = "Piyush"; //  SyntaxError: Identifier 's2' has already been declared
+
+const s3 = "Pranshu";
+const s3 = "Dev"; //  Error: Identifier 's3' has already been declared
+s3 = "Animesh";   // TypeError: Assignment to constant variable.
+
+console.log(x); // undefined (because of hoisting with var)
+var x = 10;
+
+getName(); //  works
+function getName() {
+  console.log("HELLO");
+}
+
+glaStudent(); //  works
+var glaStudent = () => {
+  console.log("I AM GLA STUDENT");
+} 
+//  undefined is not a function (because function expression is hoisted, but value is not)
+
+function x() {
+  var a = 7;
+  function y() {
+    console.log(a); // uses `a` even after x() is done
+  }
+  return y;
+}
+var z = x();
+z(); // prints 7
+
+// VAR, LET, CONST
+
+var s1 = "Rishabh";
+var s1 = "Ayush"; // Allowed with var
+console.log(s1);  // Ayush
+
+let s2 = "Suraj";
+console.log(s2);
+s2 = "Adit";      // Reassignment allowed
+console.log(s2);  // Adit
+
+const s3 = "Pranshu";
+console.log(s3);
+// s3 = "Animesh"; //  Error: Assignment to constant variable
+
+// Function and Variable Hoisting
+
+console.log(a1);  // undefined
+var a1 = 100;
+
+function sumOfTwo(num1, num2) {
+  let ans = num1 + num2;
+  return ans;
+}
+
+let sumOfTwoBy = sumOfTwo(2, 3);
+console.log(sumOfTwoBy); // 5
+
+// Lexical Scope Example
+function outer() {
+  var x = 10;
+  function middle() {
+    var y = 20;
+    function inner() {
+      var z = 30;
+      console.log(x, y, z); // All accessible due to lexical scope
+    }
+    inner();
+  }
+  middle();
+}
+outer();
+
+// Closures
+function makeFunc() {
+  var name = "Mozilla";
+  function displayName() {
+    console.log(name); // still has access to `name`
+  }
+  return displayName;
+}
+let myFunc = makeFunc();
+myFunc(); // Mozilla
+
+// setTimeout
+setTimeout(() => {
+  console.log("Hello from setTimeout after 2 seconds");
+}, 2000);
+
+// setInterval (will keep running every 2 seconds)
+let intervalId = setInterval(() => {
+  console.log("Repeating every 2 seconds");
+}, 2000);
+
+// You can stop it using: clearInterval(intervalId);
+
+// Closure in for-loop
+for (var i = 0; i < 3; i++) {
+  (function (i) {
+    setTimeout(() => {
+      console.log("Delayed:", i);
+    }, i * 1000);
+  })(i);
+}
+
+// Event Listener
+document.getElementById("functionCall").addEventListener("click", function () {
+  console.log("EVENT HAPPENED!!");
+});
