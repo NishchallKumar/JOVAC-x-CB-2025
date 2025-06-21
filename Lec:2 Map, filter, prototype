@@ -1,0 +1,105 @@
+function serveWater(callback) {
+    console.log("Serving water to the group");
+    setTimeout(callback, 1000);
+}
+
+function serveSoup(callback) {
+    console.log("Serving soup to the group");
+    setTimeout(callback, 1000);
+}
+
+function serveStarters(callback) {
+    console.log("Serving Starter to the group");
+    setTimeout(callback, 1000);
+}
+
+function serveDrinks(callback) {
+    console.log("Serving Drinks to the group");
+    setTimeout(callback, 6000);
+}
+
+function serveDinner(callback) {
+    console.log("Serving Dinner to the Group");
+    setTimeout(callback, 1000);
+}
+
+function payBill() {
+    console.log("Paying the Bill & Out of the Hotel");
+}
+
+console.log("STARTED A DAY");
+
+serveWater(() => {
+    serveSoup(() => {
+        serveStarters(() => {
+            serveDrinks(() => {
+                serveDinner(() => {
+                    payBill();
+                });
+            });
+        });
+    });
+});
+
+console.log("END OF THE DAY");
+console.log("Program Start");
+
+setTimeout(() => {
+    console.log("I am SetTimeout");
+}, 2000);
+
+fetch("https://dummyjson.com/products")
+    .then(() => {
+        console.log("DATA : SOMETHING");
+    });
+
+console.log("Program End");
+const data1 = [8, 4, 2, 6, 1];
+
+const doubleData = function (data) {
+    return data * data;
+};
+
+const calculate = function (data, logic) {
+    let output = [];
+    for (let i = 0; i < data.length; i++) {
+        output.push(logic(data[i]));
+    }
+    return output;
+};
+
+console.log(calculate(data1, doubleData));
+const arr = [5, 1, 4, 6];
+
+function double(x) {
+    return x * 2;
+}
+
+function triple(x) {
+    return x * 3;
+}
+
+console.log(arr.map(double)); // [10, 2, 8, 12]
+console.log(arr.map(triple)); // [15, 3, 12, 18]
+Array.prototype.calculate = function (logic) {
+    let output = [];
+    for (let i = 0; i < this.length; i++) {
+        output.push(logic(this[i]));
+    }
+    return output;
+};
+
+const arr1 = [1, 2, 3, 4];
+const arr2 = [4, 3, 2, 1];
+
+console.log(arr1.calculate(double)); // [2, 4, 6, 8]
+console.log(arr2.calculate(double)); // [8, 6, 4, 2]
+const arr = [2, 3, 4, 5, 6, 7, 8];
+
+function isOdd(x) {
+    return x % 2;
+}
+
+const output = arr.filter(isOdd);
+
+console.log(output); // [3, 5, 7]
