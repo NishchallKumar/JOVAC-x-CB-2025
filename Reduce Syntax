@@ -1,0 +1,20 @@
+// REDUCE SYNTAX
+let arr = [4, 6, 2, 3, 1];
+
+const output = arr.reduce(function (acc, curr) {
+    acc = acc + curr;
+    return acc;
+}, 0);
+
+console.log("Sum using reduce:", output);
+
+function sumOfArr(arr) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        sum = sum + arr[i];  // acc = acc + curr
+    }
+    return sum;
+}
+
+let result = sumOfArr([4, 6, 2, 3, 1]);
+console.log("Sum using for loop:", result);
