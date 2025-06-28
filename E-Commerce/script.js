@@ -989,7 +989,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <span class="product-price">$${discountedPrice}</span>
                                 <div class="stock-status ${stockClass}">${product.availabilityStatus}</div>
                             </div>
-                            <button class="add-to-cart">Add to Cart</button>
+                           
                         </div>
                     </div>
                 </div>
